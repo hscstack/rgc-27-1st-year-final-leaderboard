@@ -7,7 +7,7 @@
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#030712" />
     <meta name="theme-color" content="#f8fafc" />
-    <title>HSC 2026 - All Groups — RGC 1st Year Final Leaderboard</title>
+    <title>RGC HSC 2027 — 1st Year Final Leaderboard</title>
     
     <!-- Theme bootstrap script: avoids light/dark flash on page load -->
     <script>
@@ -327,9 +327,9 @@
             <div class="mx-auto max-w-3xl">
 
               <h1 class="mb-3 sm:mb-4 text-2xl font-black tracking-tight text-slate-900 dark:text-gray-100 sm:text-5xl lg:text-6xl lg:leading-[1.15]">
-                HSC 2026 - All Groups <br />
+                RGC HSC 2027 <br />
                 <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-teal-400 dark:to-cyan-400">
-                  RGC 1st Year Final Leaderboard
+                  1st Year Final Leaderboard
                 </span>
               </h1>
 
@@ -349,9 +349,6 @@
                     <select
                       id="group-select-mobile"
                       autocomplete="off"
-                      onmousedown="handleControlInteraction(event)"
-                      onpointerdown="handleControlInteraction(event)"
-                      ontouchstart="handleControlInteraction(event)"
                       onfocus="handleControlFocus(event)"
                       onchange="switchGroup(this.value)"
                       class="w-full appearance-none rounded-xl border border-slate-200 bg-white py-2 pl-9 pr-8 text-xs font-bold text-slate-800 shadow-2xs focus:border-indigo-500 focus:outline-none cursor-pointer dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
@@ -375,12 +372,9 @@
                     id="search-input"
                     placeholder="Search Roll or Student Name..."
                     autocomplete="off"
-                    onmousedown="handleControlInteraction(event)"
-                    onpointerdown="handleControlInteraction(event)"
-                    ontouchstart="handleControlInteraction(event)"
+                    class="w-full appearance-none bg-transparent py-2 sm:py-2.5 pr-9 pl-10 sm:pl-11 text-xs sm:text-sm font-semibold text-slate-900 dark:text-gray-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
                     onfocus="handleControlFocus(event)"
                     oninput="onSearchInput()"
-                    class="w-full appearance-none bg-transparent py-2 sm:py-2.5 pr-9 pl-10 sm:pl-11 text-xs sm:text-sm font-semibold text-slate-900 dark:text-gray-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
                   />
                   <button
                     type="button"
@@ -445,9 +439,6 @@
                     <select
                       id="subject-select"
                       autocomplete="off"
-                      onmousedown="handleControlInteraction(event)"
-                      onpointerdown="handleControlInteraction(event)"
-                      ontouchstart="handleControlInteraction(event)"
                       onfocus="handleControlFocus(event)"
                       onchange="onSubjectChange()"
                       class="w-full sm:w-auto rounded-xl border border-slate-200 bg-white px-2 sm:px-2.5 py-1.5 text-[11px] sm:text-xs font-bold text-slate-700 shadow-2xs focus:border-indigo-500 focus:outline-none cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 truncate"
@@ -469,9 +460,6 @@
                     <select
                       id="sort-select"
                       autocomplete="off"
-                      onmousedown="handleControlInteraction(event)"
-                      onpointerdown="handleControlInteraction(event)"
-                      ontouchstart="handleControlInteraction(event)"
                       onfocus="handleControlFocus(event)"
                       onchange="onSortChange()"
                       class="w-full sm:w-auto rounded-xl border border-slate-200 bg-white px-2 sm:px-2.5 py-1.5 text-[11px] sm:text-xs font-bold text-slate-700 shadow-2xs focus:border-indigo-500 focus:outline-none cursor-pointer dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 truncate"
@@ -492,16 +480,13 @@
           <!-- Leaderboard Table / Cards -->
           <div>
             <!-- Desktop Header -->
-            <div class="hidden sm:flex px-4 py-3 mb-2 bg-white/60 border border-slate-200/80 rounded-2xl text-xs font-bold text-slate-500 uppercase tracking-wider items-center justify-between gap-4 dark:bg-slate-900/60 dark:border-slate-800 dark:text-slate-400">
-              <div class="flex items-center gap-3.5 min-w-0 flex-1">
-                <div class="w-10 text-center shrink-0">Rank</div>
-                <div class="px-1">Student &amp; Roll</div>
-              </div>
-              <div class="flex items-center gap-8 shrink-0">
-                <div class="w-16 text-right">GPA</div>
-                <div class="w-20 text-right">Marks</div>
-                <div class="w-6"></div>
-              </div>
+            <div class="hidden sm:flex p-3.5 mb-2.5 bg-white/60 border border-slate-200 rounded-xl text-xs font-bold text-slate-500 uppercase tracking-wider items-center dark:bg-slate-900/60 dark:border-slate-800 dark:text-slate-400">
+              <div class="w-16 text-center shrink-0">Rank</div>
+              <div class="w-32 text-center shrink-0">Roll Number</div>
+              <div class="flex-1 px-4">Student Name</div>
+              <div class="w-24 text-center shrink-0">Total Marks</div>
+              <div class="w-24 text-center shrink-0">GPA</div>
+              <div class="w-12 text-right shrink-0 pr-2">Action</div>
             </div>
 
             <!-- Empty State -->
@@ -523,7 +508,7 @@
             <div id="pagination-container" class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
               <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
                 <span>Per page:</span>
-                <select id="page-size" onmousedown="handleControlInteraction(event)" onpointerdown="handleControlInteraction(event)" ontouchstart="handleControlInteraction(event)" onfocus="handleControlFocus(event)" onchange="onPageSizeChange()" class="rounded-lg border border-slate-200 bg-slate-50 px-2 py-1 text-xs font-bold text-slate-700 outline-none cursor-pointer dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
+                <select id="page-size" onfocus="handleControlFocus(event)" onchange="onPageSizeChange()" class="rounded-lg border border-slate-200 bg-slate-50 px-2 py-1 text-xs font-bold text-slate-700 outline-none cursor-pointer dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
                   <option value="25">25</option>
                   <option value="50">50</option>
                   <option value="100">100</option>
@@ -644,7 +629,7 @@
                 &copy; 2026 HSCStack.
               </p>
               <p class="text-center text-xs font-semibold text-slate-500 sm:text-right dark:text-gray-400">
-                HSC 2026 - All Groups — RGC 1st Year Final Leaderboard
+                RGC HSC 2027 — 1st Year Final Leaderboard
               </p>
             </div>
           </div>
@@ -899,7 +884,15 @@
           <div class="mt-3.5 pt-3.5 border-t border-slate-200/80 dark:border-slate-700/60">
             <span class="text-[11px] font-medium text-slate-400 dark:text-slate-500">Regards,</span>
             <div class="mt-0.5">
-              <p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Tajim</p>
+              <a
+              href="https://hscstack.site/u/trtajim"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-bold text-slate-900 dark:text-slate-100 text-sm hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline inline-flex items-center gap-1 group transition-colors"
+            >
+              <span>Tajim</span>
+              <span class="material-symbols-rounded text-[14px] text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">arrow_outward</span>
+            </a>
             </div>
             <a
               href="https://hscstack.site"
@@ -1265,22 +1258,6 @@
         return true;
       }
 
-      function handleControlInteraction(e) {
-        if (!isPlatformDomain()) return true;
-        if (!isLoggedIn) {
-          if (e) {
-            if (typeof e.preventDefault === 'function') e.preventDefault();
-            if (typeof e.stopPropagation === 'function') e.stopPropagation();
-            if (e.target && typeof e.target.blur === 'function') {
-              e.target.blur();
-            }
-          }
-          openAuthModal();
-          return false;
-        }
-        return true;
-      }
-
       function handleControlFocus(e) {
         if (!isPlatformDomain()) return;
         if (!isLoggedIn) {
@@ -1454,14 +1431,7 @@
         }
       }
 
-      let currentSort = 'rank-asc';
-
       function switchGroup(groupKey) {
-        if (!ensureAuth()) {
-          const mobileSelect = document.getElementById('group-select-mobile');
-          if (mobileSelect) mobileSelect.value = currentGroupKey;
-          return;
-        }
         if (!GROUPS_DATA[groupKey]) return;
         currentGroupKey = groupKey;
         rawStudents = GROUPS_DATA[groupKey].students || [];
@@ -1514,11 +1484,10 @@
 
       function onSubjectChange() {
         if (!ensureAuth()) {
-          const el = document.getElementById('subject-select');
-          if (el) el.value = currentSubject;
+          document.getElementById('subject-select').value = currentSubject;
           return;
         }
-        currentSubject = document.getElementById('subject-select')?.value || 'all';
+        currentSubject = document.getElementById('subject-select').value;
         currentPage = 1;
         applySortAndRender();
       }
@@ -1552,12 +1521,7 @@
       }
 
       function onSortChange() {
-        if (!ensureAuth()) {
-          const el = document.getElementById('sort-select');
-          if (el) el.value = currentSort;
-          return;
-        }
-        currentSort = document.getElementById('sort-select')?.value || 'rank-asc';
+        if (!ensureAuth()) return;
         currentPage = 1;
         applySortAndRender();
       }
@@ -1587,20 +1551,12 @@
         renderRows();
       }
 
-      function getDesktopRankBadge(position) {
-        if (!position || position === '-') return '<span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500 font-bold text-xs">-</span>';
-        if (position === 1) return '<span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-800 border border-amber-200/80 font-black text-base dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/30">1</span>';
-        if (position === 2) return '<span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-100 text-slate-800 border border-slate-200 font-black text-base dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700">2</span>';
-        if (position === 3) return '<span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-orange-50 text-orange-800 border border-orange-200/80 font-black text-base dark:bg-orange-500/15 dark:text-orange-300 dark:border-orange-500/30">3</span>';
-        return `<span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-50 text-slate-600 font-bold text-sm font-mono border border-slate-200/60 dark:bg-slate-800/50 dark:text-slate-400 dark:border-slate-700/60">${position}</span>`;
-      }
-
-      function getMobileRankBadge(position) {
-        if (!position || position === '-') return '<span class="inline-flex items-center justify-center rounded-xl bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-500 font-mono dark:bg-slate-800 dark:text-slate-400">-</span>';
-        if (position === 1) return '<span class="inline-flex items-center justify-center rounded-xl bg-amber-100/80 px-2.5 py-1 text-xs sm:text-sm font-black text-amber-800 border border-amber-200/80 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/30">#1</span>';
-        if (position === 2) return '<span class="inline-flex items-center justify-center rounded-xl bg-slate-200/80 px-2.5 py-1 text-xs sm:text-sm font-black text-slate-700 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700">#2</span>';
-        if (position === 3) return '<span class="inline-flex items-center justify-center rounded-xl bg-orange-100/80 px-2.5 py-1 text-xs sm:text-sm font-black text-orange-800 border border-orange-200/80 dark:bg-orange-500/15 dark:text-orange-300 dark:border-orange-500/30">#3</span>';
-        return `<span class="inline-flex items-center justify-center rounded-xl bg-slate-100 px-2.5 py-1 text-xs sm:text-sm font-bold text-slate-600 font-mono border border-slate-200/80 dark:bg-slate-800/60 dark:text-slate-400 dark:border-slate-700">#${position}</span>`;
+      function getRankBadge(position) {
+        if (!position || position === '-') return '<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 text-slate-400 dark:bg-slate-800/60 dark:text-slate-500 font-bold text-xs">-</span>';
+        if (position === 1) return '<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 font-extrabold text-xs">🥇 1</span>';
+        if (position === 2) return '<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-300 font-extrabold text-xs">🥈 2</span>';
+        if (position === 3) return '<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-orange-100 text-orange-900 dark:bg-orange-950/60 dark:text-orange-300 font-extrabold text-xs">🥉 3</span>';
+        return `<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-400 font-bold text-xs font-mono">#${position}</span>`;
       }
 
       function renderRows() {
@@ -1623,7 +1579,7 @@
 
         displayItems.forEach(s => {
           const card = document.createElement('div');
-          card.className = 'group flex flex-col bg-white border border-slate-200/80 rounded-2xl p-3.5 sm:p-3.5 cursor-pointer hover:bg-slate-50/80 hover:border-slate-300 transition-all shadow-2xs touch-manipulation active:scale-[0.99] dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800/60 dark:hover:border-slate-700';
+          card.className = 'group flex flex-col sm:flex-row sm:items-center bg-white border border-slate-200/80 rounded-xl p-3 sm:p-3.5 cursor-pointer hover:bg-slate-50/80 hover:border-slate-300 transition-all shadow-xs touch-manipulation active:scale-[0.99] dark:bg-slate-900 dark:border-slate-800 dark:hover:bg-slate-800/60 dark:hover:border-slate-700';
           card.onclick = () => openStudentModal(s.roll);
 
           const displayRank = s.position;
@@ -1631,77 +1587,59 @@
           const displayMarks = currentSubject === 'all' ? s.total_mark : (subObj && subObj.total !== undefined ? subObj.total : '-');
 
           card.innerHTML = `
-            <!-- Mobile View (Clean 2-Row Card) -->
-            <div class="flex sm:hidden flex-col w-full">
-              <!-- Top Row: Name + Roll on left, Rank Badge on right -->
-              <div class="flex items-start justify-between gap-3">
-                <div class="min-w-0 flex-1">
-                  <h3 class="font-black text-slate-900 text-[14px] leading-snug tracking-tight truncate group-hover:text-indigo-600 transition-colors dark:text-gray-100 dark:group-hover:text-indigo-400">
+            <!-- Mobile View -->
+            <div class="flex sm:hidden items-center justify-between gap-2.5 w-full">
+              <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                <div class="shrink-0">${getRankBadge(displayRank)}</div>
+                <div class="flex flex-col min-w-0 flex-1 gap-0.5">
+                  <span class="font-bold text-slate-900 text-sm leading-snug truncate group-hover:text-indigo-600 transition-colors dark:text-gray-100 dark:group-hover:text-indigo-400">
                     ${s.name}
-                  </h3>
-                  <p class="text-[11px] font-bold text-slate-500 dark:text-slate-400 font-mono mt-0.5 tracking-wide">
-                    ${s.roll}
-                  </p>
-                </div>
-                <div class="shrink-0 pt-0.5">
-                  ${getMobileRankBadge(displayRank)}
+                  </span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="font-mono text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:border-slate-700">
+                      ${s.roll}
+                    </span>
+                    <span class="font-extrabold text-xs text-emerald-600 dark:text-emerald-400">
+                      GPA ${s.gpa !== null ? s.gpa.toFixed(2) : '-'}
+                    </span>
+                    <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                      ${displayMarks} Marks
+                    </span>
+                  </div>
                 </div>
               </div>
-
-              <!-- Subtle Divider -->
-              <div class="border-t border-slate-100 dark:border-slate-800/80 my-2.5"></div>
-
-              <!-- Bottom Row: GPA on left, Marks on right -->
-              <div class="flex items-center justify-between text-xs">
-                <div class="flex items-baseline gap-1.5">
-                  <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">GPA</span>
-                  <span class="font-extrabold text-slate-900 dark:text-gray-100 text-sm">
-                    ${s.gpa !== null ? s.gpa.toFixed(2) : '-'}
-                  </span>
-                </div>
-                <div class="flex items-baseline gap-1.5">
-                  <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">MARKS</span>
-                  <span class="font-black text-indigo-600 dark:text-indigo-400 text-sm font-mono">
-                    ${displayMarks}
-                  </span>
-                </div>
+              <div class="shrink-0 text-slate-300 group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
               </div>
             </div>
 
-            <!-- Desktop View (Clean PC Row Design) -->
-            <div class="hidden sm:flex w-full items-center justify-between gap-4 px-1">
-              <!-- Left: Rank Badge + Name & Roll stacked -->
-              <div class="flex items-center gap-3.5 min-w-0 flex-1">
-                <div class="shrink-0">
-                  ${getDesktopRankBadge(displayRank)}
-                </div>
-                <div class="flex flex-col min-w-0 flex-1">
-                  <span class="font-black text-slate-900 text-sm sm:text-[15px] leading-snug tracking-tight truncate group-hover:text-indigo-600 transition-colors dark:text-gray-100 dark:group-hover:text-indigo-400">
-                    ${s.name}
-                  </span>
-                  <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 font-mono mt-0.5 tracking-wide">
-                    ${s.roll}
-                  </span>
+            <!-- Desktop View -->
+            <div class="hidden sm:flex w-full items-center">
+              <div class="w-16 flex justify-center shrink-0">
+                ${getRankBadge(displayRank)}
+              </div>
+              <div class="w-32 flex justify-center shrink-0">
+                <div class="font-mono text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-lg border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:border-slate-700">
+                  ${s.roll}
                 </div>
               </div>
-
-              <!-- Right: GPA, Marks, Chevron -->
-              <div class="flex items-center gap-8 shrink-0">
-                <div class="w-16 text-right">
-                  <span class="font-extrabold text-slate-900 dark:text-gray-100 text-sm sm:text-base">
-                    ${s.gpa !== null ? s.gpa.toFixed(2) : '-'}
-                  </span>
-                </div>
-                <div class="w-20 text-right">
-                  <span class="font-black text-slate-900 dark:text-gray-100 text-sm sm:text-base font-mono">
-                    ${displayMarks}
-                  </span>
-                </div>
-                <div class="w-6 flex justify-end text-slate-300 group-hover:text-slate-600 transition-colors dark:text-slate-600 dark:group-hover:text-slate-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
+              <div class="flex-1 px-4 min-w-0 flex flex-col justify-center">
+                <span class="font-bold text-slate-900 text-sm leading-snug truncate group-hover:text-indigo-600 transition-colors dark:text-gray-100 dark:group-hover:text-indigo-400">${s.name}</span>
+              </div>
+              <div class="w-24 text-center shrink-0">
+                <span class="font-bold text-sm text-slate-700 dark:text-slate-300">${displayMarks}</span>
+              </div>
+              <div class="w-24 text-center shrink-0">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200/60 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20">
+                  ${s.gpa !== null ? s.gpa.toFixed(2) : '-'}
+                </span>
+              </div>
+              <div class="w-12 flex justify-end shrink-0 pr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-300 group-hover:text-slate-600 transition-colors dark:text-slate-600 dark:group-hover:text-slate-300" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
               </div>
             </div>
           `;
@@ -1712,12 +1650,8 @@
       }
 
       function onPageSizeChange() {
-        if (!ensureAuth()) {
-          const el = document.getElementById('page-size');
-          if (el) el.value = pageSize === 'all' ? 'all' : String(pageSize);
-          return;
-        }
-        const val = document.getElementById('page-size')?.value;
+        if (!ensureAuth()) return;
+        const val = document.getElementById('page-size').value;
         pageSize = val === 'all' ? 'all' : parseInt(val, 10);
         currentPage = 1;
         renderRows();
@@ -1928,7 +1862,6 @@
 
       function resetControls() {
         currentSubject = 'all';
-        currentSort = 'rank-asc';
         currentPage = 1;
         const subSelect = document.getElementById('subject-select');
         if (subSelect) subSelect.value = 'all';
@@ -1947,25 +1880,6 @@
         filteredStudents = [...rawStudents];
       }
 
-      function attachAuthGuards() {
-        const guardedIds = ['sort-select', 'subject-select', 'search-input', 'page-size', 'group-select-mobile'];
-        guardedIds.forEach(id => {
-          const el = document.getElementById(id);
-          if (!el) return;
-          ['pointerdown', 'mousedown', 'touchstart', 'click'].forEach(evt => {
-            el.addEventListener(evt, (e) => {
-              if (!isPlatformDomain()) return;
-              if (!isLoggedIn) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (typeof el.blur === 'function') el.blur();
-                openAuthModal();
-              }
-            }, { capture: true, passive: false });
-          });
-        });
-      }
-
       window.addEventListener('pageshow', () => {
         resetControls();
         applySortAndRender();
@@ -1978,7 +1892,6 @@
       resetControls();
       applySortAndRender();
       checkUserAuth();
-      attachAuthGuards();
       checkNoticeModal();
     </script>
   </body>
